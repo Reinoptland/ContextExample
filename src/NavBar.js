@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ShoppingCartContext } from "./App";
+import { ShoppingCartContext } from "./ShoppinCartProvider";
 
 export default function NavBar() {
   const shoppingCart = useContext(ShoppingCartContext);

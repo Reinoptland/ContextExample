@@ -1,17 +1,13 @@
-import { useState, createContext } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import ProductCard from "./ProductCard";
 import NavBar from "./NavBar";
-
-export const ShoppingCartContext = createContext({});
+import ShoppingCartProvider from "./ShoppinCartProvider";
 
 // console.log("CONTEXT?", ShoppingCartContext);
 
 function App() {
-  const [cart, setCart] = useState([]);
   return (
-    <ShoppingCartContext.Provider value={{ cart: cart, setCart: setCart }}>
+    <ShoppingCartProvider>
       <div className="App">
         <NavBar />
         <header className="App-header">
@@ -20,7 +16,7 @@ function App() {
           <ProductCard productName="Lemon" price={1.5} />
         </header>
       </div>
-    </ShoppingCartContext.Provider>
+    </ShoppingCartProvider>
   );
 }
 
