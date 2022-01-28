@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 export const ShoppingCartContext = createContext({});
 
@@ -11,4 +11,8 @@ export default function ShoppinCartProvider(props) {
       {props.children}
     </ShoppingCartContext.Provider>
   );
+}
+
+export function useCart() {
+  return useContext(ShoppingCartContext);
 }

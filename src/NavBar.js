@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { ShoppingCartContext } from "./ShoppinCartProvider";
+import React from "react";
+import { useCart } from "./ShoppinCartProvider";
 
 export default function NavBar() {
-  const shoppingCart = useContext(ShoppingCartContext);
+  const shoppingCart = useCart();
   return <nav>🛒 {shoppingCart.cart.length} items</nav>;
 }

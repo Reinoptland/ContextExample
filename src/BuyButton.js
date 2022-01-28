@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { ShoppingCartContext } from "./ShoppinCartProvider";
+import React from "react";
+import { useCart } from "./ShoppinCartProvider";
 
 export default function BuyButton(props) {
-  const shoppingCart = useContext(ShoppingCartContext);
+  const shoppingCart = useCart();
   return (
     <button
       onClick={() =>
