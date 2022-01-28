@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShoppingCartContext } from "./App";
 
 export default function ProductCard(props) {
+  const shoppingCart = useContext(ShoppingCartContext);
+  console.log("CART STUFF:", shoppingCart);
   return (
     <div style={{ width: "300px" }}>
       <img src={`https://source.unsplash.com/200x200/?${props.productName}`} />
@@ -8,8 +11,8 @@ export default function ProductCard(props) {
       <p>{props.productDescription}</p>
       <button
         onClick={() =>
-          props.setCart([
-            ...props.cart,
+          shoppingCart.setCart([
+            ...shoppingCart.cart,
             { productName: props.productName, price: props.price },
           ])
         }
