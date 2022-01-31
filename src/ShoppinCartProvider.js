@@ -1,25 +1,31 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useReducer, useContext } from "react";
 
 export const ShoppingCartContext = createContext({});
 
+const initialState = [];
+const shoppingCartReducer = (state, action) => {
+  console.log("CURRENT STATE", state, "ACTION", action);
+  return [];
+};
+
 export default function ShoppinCartProvider(props) {
-  const [cart, setCart] = useState([]);
+  const [cart, dispatch] = useReducer(shoppingCartReducer, initialState);
 
-  function addToCart(product) {
-    setCart([...cart, product]);
-  }
+  //   const [cart, setCart] = useState([]);
 
-  function emptyCart() {
-    setCart([]);
-  }
+  //   function addToCart(product) {
+  //     setCart([...cart, product]);
+  //   }
+
+  //   function emptyCart() {
+  //     setCart([]);
+  //   }
 
   return (
     <ShoppingCartContext.Provider
       value={{
         cart: cart,
-        setCart: setCart,
-        addToCart: addToCart,
-        emptyCart: emptyCart,
+        dispatch: dispatch,
       }}
     >
       {/* PUT THE REST OF THE APP HERE ... */}
