@@ -3,9 +3,15 @@ import React, { createContext, useReducer, useContext } from "react";
 export const ShoppingCartContext = createContext({});
 
 const initialState = [];
-const shoppingCartReducer = (state, action) => {
-  console.log("CURRENT STATE", state, "ACTION", action);
-  return [];
+const shoppingCartReducer = (cart, action) => {
+  console.log("CURRENT STATE", cart, "ACTION", action);
+  switch (action.type) {
+    case "ADD_TO_CART":
+      return [...cart, action.payload];
+
+    default:
+      return cart; // nothing happens
+  }
 };
 
 export default function ShoppinCartProvider(props) {
