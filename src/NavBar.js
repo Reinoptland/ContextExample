@@ -1,11 +1,8 @@
 import React from "react";
-import { useCart } from "./ShoppinCartProvider";
+import { useCart, emptyCartAction } from "./ShoppinCartProvider";
 
 export default function NavBar() {
   const shoppingCart = useCart();
-  const emptyCartAction = {
-    type: "EMPTY_CART",
-  };
   return (
     <nav>
       🛒 {shoppingCart.cart.length} items{" "}

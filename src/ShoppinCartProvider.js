@@ -17,6 +17,23 @@ const shoppingCartReducer = (cart, action) => {
   }
 };
 
+// ACTIONS
+export const emptyCartAction = {
+  type: "EMPTY_CART",
+};
+
+// action creator
+export function addToCart(productName, price) {
+  return {
+    type: "ADD_TO_CART",
+    payload: {
+      productName: productName,
+      price: price,
+    },
+  };
+}
+
+// PROVIDER
 export default function ShoppinCartProvider(props) {
   const [cart, dispatch] = useReducer(shoppingCartReducer, initialState);
 

@@ -1,17 +1,15 @@
 import React from "react";
-import { useCart } from "./ShoppinCartProvider";
+import { useCart, addToCart } from "./ShoppinCartProvider";
 
 export default function BuyButton(props) {
   const shoppingCart = useCart();
-  const action = {
-    type: "ADD_TO_CART",
-    payload: {
-      productName: props.productName,
-      price: props.price,
-    },
-  };
+
   return (
-    <button onClick={() => shoppingCart.dispatch(action)}>
+    <button
+      onClick={() =>
+        shoppingCart.dispatch(addToCart(props.productName, props.price))
+      }
+    >
       Buy now €{props.price}
     </button>
   );
