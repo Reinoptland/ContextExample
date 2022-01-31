@@ -4,10 +4,13 @@ export const ShoppingCartContext = createContext({});
 
 const initialState = [];
 const shoppingCartReducer = (cart, action) => {
-  console.log("CURRENT STATE", cart, "ACTION", action);
+  //   console.log("CURRENT STATE", cart, "ACTION", action);
   switch (action.type) {
     case "ADD_TO_CART":
       return [...cart, action.payload];
+
+    case "EMPTY_CART":
+      return [];
 
     default:
       return cart; // nothing happens
