@@ -3,5 +3,10 @@ import { useCart } from "./ShoppinCartProvider";
 
 export default function NavBar() {
   const shoppingCart = useCart();
-  return <nav>🛒 {shoppingCart.cart.length} items</nav>;
+  return (
+    <nav>
+      🛒 {shoppingCart.cart.length} items{" "}
+      <button onClick={() => shoppingCart.emptyCart()}>❌</button>
+    </nav>
+  );
 }

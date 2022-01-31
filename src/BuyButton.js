@@ -6,10 +6,10 @@ export default function BuyButton(props) {
   return (
     <button
       onClick={() =>
-        shoppingCart.setCart([
-          ...shoppingCart.cart,
-          { productName: props.productName, price: props.price },
-        ])
+        shoppingCart.addToCart({
+          productName: props.productName,
+          price: props.price,
+        })
       }
     >
       Buy now €{props.price}
